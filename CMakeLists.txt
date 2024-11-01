@@ -1,5 +1,5 @@
 # cmake 3.22 is necessary to have FindCUDAToolkit.cmake
-cmake_minimum_required(VERSION 3.22)
+cmake_minimum_required(VERSION 3.8)
 
 
 project(hello_picus LANGUAGES CXX C)
@@ -8,6 +8,9 @@ if(NOT DEFINED CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 11)
 endif()
 
+list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
+
+find_package(gpiod REQUIRED)
 
 # #####################################################################
 # enable_language(CUDA)
