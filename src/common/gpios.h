@@ -7,6 +7,7 @@
 #include <map>
 #include <thread>
 #include "picus_gpios.h"
+#include <functional>
 
 class GPIOS
 {
@@ -14,10 +15,9 @@ public:
     GPIOS() {}
 
     bool init();
-    bool GPIOS::set_output(GPIO_PIN pin, int state);
+    bool set_output(GPIO_PIN pin, int state);
 
-    using CallbackType = std::function<void()>;
-    void setGPIOCallback(CallbackType gpioChanged);
+    void setGPIOCallback(std::function<void()> gpioChanged);
 
 private:
     struct GPIOData
@@ -31,6 +31,6 @@ private:
     std::vector<gpiod_chip *> _chips;
     std::vector<std::thread> _input_monitor_threads;
 
-    CallbackType gpioChanged;
+    std::function<void()> _gpioChanged;
 };
 #endif

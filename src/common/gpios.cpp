@@ -72,7 +72,7 @@ bool GPIOS::init()
                     ret = gpiod_line_event_read(line, &event);
 
                     _gpios[key]->state = (1 - value); // lets invert the value. because it is active low
-                    gpioChanged();
+                    _gpioChanged();
                 };
             }});
     }
@@ -84,13 +84,19 @@ bool GPIOS::set_output(GPIO_PIN pin, int state)
 {
     if (!_gpios.count(pin))
     {
-        Error("couldn't find configuration gpio %s", GPIOS.at(pin)->picus_name.c_str());
-        return;
+        Error("couldn't find configuration gpio %s", GPIOPINS.at(pin)->picus_name.c_str());
+        return false;
     }
 
     if (state == 1 || state == 0)
     {
         auto ret = gpiod_line_set_value(_gpios.at(pin)->line, state);
-        gpioChanged();
+        _gpioChanged();
+        return true;
     }
+    return false;
+}
+
+void GPIOS::setGPIOCallback(std::function<void()> gpioChanged){
+    this->_gpioChanged = gpioChanged;
 }

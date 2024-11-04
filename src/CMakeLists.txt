@@ -1,3 +1,9 @@
-add_subdirectory(common)
+add_executable(hello_picus
+     main.cpp
+     common/picus_gpios.h
+     common/gpios.h
+     common/gpios.cpp)
 
-add_executable(hello_picus main.cpp)
+target_link_libraries(hello_picus
+    gpiod
+)
