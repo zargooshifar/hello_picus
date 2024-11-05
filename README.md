@@ -13,11 +13,10 @@ cmake ..
 make
 ```
 
-binary files will be at build/src folder:
+run examples:
 ```
-cd build
-./src/gpio_example
-./src/cuda_example ../kitty.jpeg
+./gpio_example
+./cuda_example ../kitty.jpeg
 ```
 
 

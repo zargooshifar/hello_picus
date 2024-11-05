@@ -27,5 +27,27 @@ find_package(gpiod REQUIRED)
 
 # ##########################################################
 
-add_subdirectory(src)
+# gpio example
+add_executable(gpio_example
+  src/gpio_example.cpp
+  src/common/picus_gpios.h
+  src/common/gpios.h
+  src/common/gpios.cpp)
+
+target_link_libraries(gpio_example
+  gpiod
+)
+
+
+
+# cuda example
+add_executable(cuda_example
+  src/cuda_example.cpp)
+
+
+# Enable separable compilation for CUDA (optional, depending on your needs)
+set_property(TARGET cuda_example PROPERTY CUDA_SEPARABLE_COMPILATION ON)
+
+# Link OpenCV and CUDA libraries
+target_link_libraries(cuda_example ${OpenCV_LIBRARIES} ${CUDA_LIBRARIES})
 
