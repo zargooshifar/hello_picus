@@ -91,6 +91,7 @@ bool GPIOS::set_output(GPIO_PIN pin, int state)
     if (state == 1 || state == 0)
     {
         auto ret = gpiod_line_set_value(_gpios.at(pin)->line, state);
+        __gpios.at(pin)->state = state;
         _gpioChanged(_gpios);
         return true;
     }
