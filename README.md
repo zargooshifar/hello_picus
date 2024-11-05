@@ -21,7 +21,7 @@ run examples:
 
 
 
-**picus is running on 25W mode as default. you can change this in GUI or by run bellow command:**
+**picus is running on 15W mode as default. you can change this in GUI or by run following command:**
 ```
 # for check power mode
 sudo nvpmodel -q
