@@ -12,7 +12,9 @@ cd build
 ./src/cuda_example ../kitty.jpeg
 ```
 
-picus is running on 25W mode as default. you can change this in GUI or by run bellow command:
+
+
+**picus is running on 25W mode as default. you can change this in GUI or by run bellow command:**
 ```
 # for check power mode
 nvpmodel -q
