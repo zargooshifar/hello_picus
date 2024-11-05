@@ -1,5 +1,5 @@
 install requirements:
-opencv + cuda support (you can choose different versions of opencv to install):
+opencv + cuda support (you can choose different versions of opencv to install), before start installing opencv change powermode to MAX
 ```
 git clone https://github.com/zargooshifar/Install-OpenCV-Picus.git
 cd Install-OpenCV-Picus
