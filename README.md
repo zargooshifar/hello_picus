@@ -11,3 +11,18 @@ cd build
 ./src/gpio_example
 ./src/cuda_example ../kitty.jpeg
 ```
+
+picus is running on 25W mode as default. you can change this in GUI or by run bellow command:
+```
+# for check power mode
+nvpmodel -q
+# change to max power mode (25W)
+nvpmodel -m 0
+```
+
+power modes:
+
+0: MAX
+1: 10W
+2: 15W
+3: 25W
