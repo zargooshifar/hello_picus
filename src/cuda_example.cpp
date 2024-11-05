@@ -28,7 +28,7 @@ int main( int argc, char** argv )
     cv::Mat src = cv::imread(imagePath);
 
     // Check if the image was loaded successfully
-    if (image.empty()) {
+    if (src.empty()) {
         std::cerr << "Error: Could not open or find the image at " << imagePath << std::endl;
         return -1;
     }
