@@ -5,6 +5,9 @@ opencv + cuda support (before start installing opencv change powermode to MAX)
 chmod +x install_opencv_with_cuda_support.sh
 ./install_opencv_with_cuda_support.sh
 ```
+**Please reboot the picus after finished installation**
+
+
 
 compile command:
 ```
