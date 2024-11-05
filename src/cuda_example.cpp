@@ -11,7 +11,7 @@
 using namespace cv;
 using namespace std;
 
-constexpr int repetitions = 10000;
+constexpr int repetitions = 1000;
  
 int main( int argc, char** argv )
 {
@@ -79,11 +79,11 @@ int main( int argc, char** argv )
     << " milliseconds\n";
  
 
-    imshow( "Source image", result );
+    //imshow( "Source image", result );
     // imshow( "Warp", warp_dst );
     // imshow( "Warp + Rotate", warp_rotate_dst );
  
-    waitKey();
+    //waitKey();
  
     return 0;
 }
