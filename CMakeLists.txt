@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.8)
 
 
-project(hello_picus LANGUAGES CXX C)
+project(hello_picus LANGUAGES CUDA CXX C)
 
 if(NOT DEFINED CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 11)
@@ -10,37 +10,23 @@ endif()
 
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 
+# Find OpenCV with CUDA support
+find_package(OpenCV REQUIRED)
+find_package(CUDA REQUIRED)
+
+# Set CUDA architecture (modify according to your GPU)
+# set(CUDA_ARCH_BIN "12.2" CACHE STRING "CUDA architecture bin")
+
+# Include OpenCV and CUDA directories
+include_directories(${OpenCV_INCLUDE_DIRS})
+include_directories(${CUDA_INCLUDE_DIRS})
+# find gpiod lib for controlling gpios
 find_package(gpiod REQUIRED)
 
 # #####################################################################
-# enable_language(CUDA)
-
-# # FindCUDAToolkit.cmake is able to correctly find cuda library
-# # either when using nvcc from cuda toolkit or nvc++ from nvhpc
-# # only in cmake 3.22.0
-# if(${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.22.0" )
-#   message("Using CUDAToolkit macros")
-#   find_package(CUDAToolkit REQUIRED)
-# else()
-#   message("Using CUDALibs macros")
-#   find_package(CUDALibs REQUIRED COMPONENTS CUBLAS)
-# endif()
-
-# if(NOT DEFINED CMAKE_CUDA_STANDARD)
-#   set(CMAKE_CUDA_STANDARD 11)
-# endif()
-# set(CMAKE_CUDA_STANDARD_REQUIRED ON)
-
-# # other third party libraries
-# find_package(OpenMP)
-# #find_package(OpenGL)
-# #find_package(GLUT)
-
-# # we also need extra stuff to make sure compile flags are correctly
-# # passed to nvcc / host compiler
-# include(protect_nvcc_flags)
-# include(protect_pthread_flag)
 
 # ##########################################################
 
 add_subdirectory(src)
+
+set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin )
