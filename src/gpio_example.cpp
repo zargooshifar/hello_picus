@@ -14,11 +14,11 @@ int main(int argc, char **argv)
    // set a callback, if any gpio changes you can be notified in this function
     gpios.setGPIOCallback([](std::map<GPIO_PIN, GPIOData*>& gpios) -> void { 
             for (const auto& pair : gpios) {
-                std::cout <<  GPIOPINS.at(pair.first)->picus_name.c_str()  << " state is " << pair.second->state << std::endl;
+                std::cout << std::endl <<  GPIOPINS.at(pair.first)->picus_name.c_str()  << " state is " << pair.second->state << std::endl << std::endl;
             }
         });
+        
     // initializeing the gpios
-
     gpios.init();
     
 
