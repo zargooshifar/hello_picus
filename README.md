@@ -22,7 +22,9 @@ nvpmodel -m 0
 
 power modes:
 
-0: MAX
-1: 10W
-2: 15W
-3: 25W
+| Power Mode | Description |
+|------------|-------------|
+| 0          | MAX         |
+| 1          | 10W         |
+| 2          | 15W         |
+| 3          | 25W         |
