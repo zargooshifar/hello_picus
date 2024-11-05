@@ -36,7 +36,7 @@ int main(int argc, char **argv)
     // wait for input to exit the program...
     std::atomic<bool> stop;
     std::thread t([&stop](){while(!stop){};});
-    std::cout << "Press Enter to exit..." << std::endl;
+    std::cout << "You can monitor GPIO inputs or press Enter to exit..." << std::endl;
 
     std::cin.get();
     stop = true;
