@@ -1,3 +1,12 @@
+install requirements:
+opencv + cuda support (you can choose different versions of opencv to install):
+```
+git clone https://github.com/zargooshifar/Install-OpenCV-Picus.git
+cd Install-OpenCV-Picus
+chmod +x OpenCV-4-8-0.sh
+./OpenCV-4-8-0.sh
+```
+
 compile command:
 ```
 mkdir build; cd build
