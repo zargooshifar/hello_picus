@@ -29,4 +29,3 @@ find_package(gpiod REQUIRED)
 
 add_subdirectory(src)
 
-set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin )

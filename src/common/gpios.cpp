@@ -72,7 +72,7 @@ bool GPIOS::init()
                     ret = gpiod_line_event_read(line, &event);
 
                     _gpios[key]->state = (1 - value); // lets invert the value. because it is active low
-                    _gpioChanged();
+                    _gpioChanged(_gpios);
                 };
             }});
     }
@@ -91,12 +91,12 @@ bool GPIOS::set_output(GPIO_PIN pin, int state)
     if (state == 1 || state == 0)
     {
         auto ret = gpiod_line_set_value(_gpios.at(pin)->line, state);
-        _gpioChanged();
+        _gpioChanged(_gpios);
         return true;
     }
     return false;
 }
 
-void GPIOS::setGPIOCallback(std::function<void()> gpioChanged){
+void GPIOS::setGPIOCallback(std::function<void(std::map<GPIO_PIN, GPIOData *>&)> gpioChanged){
     this->_gpioChanged = gpioChanged;
 }

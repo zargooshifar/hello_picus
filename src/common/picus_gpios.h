@@ -35,6 +35,13 @@ struct PicusGpioType
         : pin_name(pin_name), picus_name(picus_name), chip_num(chip), line_num(line), direction(dir) {};
 };
 
+struct GPIOData
+{
+    struct gpiod_line *line;
+    int state = 0;
+    GPIOData(gpiod_line *line) : line(line) {};
+};
+
 static const std::map<GPIO_PIN, PicusGpioType *> GPIOPINS = {
     {IN1, new PicusGpioType("PCC.03", "IN1", 1, 15, INPUT)},
     {IN2, new PicusGpioType("PCC.02", "IN2", 1, 14, INPUT)},
